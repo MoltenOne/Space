@@ -1,0 +1,112 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>WORK</title>
+<script type="text/javascript" src="js/three.js"></script>
+<script type="text/javascript" src="jsq/jquery.min.js"></script>
+<script type="text/javascript" src="jsq/jquery.min.js1"></script>
+<script type="text/javascript" src="jsq/jquery.min.js2"></script>
+<script type="text/javascript" src="js/OrbitControls.js"></script>
+<script type="text/javascript" src="js/Projector.js"></script>
+<script type="text/javascript" src="js/tween.min.js"></script>
+<script type="text/javascript" src="js/buffer.js"></script>
+<script type="text/javascript" src="js/objloader.js"></script>
+<script src="js/THREEx.WindowResize.js"></script>
+<script src="js/createjs.min.js"></script>
+<script src="js/preload.js"></script>
+<script src="scripts/preloader.js"></script>
+<!-- <script type="text/javascript" src="js/THREEx.KeyboardState.js"></script> -->
+<!-- <script type="text/javascript" src="js/three2.js"></script> -->
+
+<script id="vertexShader" type="x-shader/x-vertex">
+uniform vec3 viewVector;
+uniform float c;
+uniform float p;
+varying float intensity;
+void main() 
+{
+    vec3 vNormal = normalize( normalMatrix * normal );
+	vec3 vNormel = normalize( normalMatrix * viewVector );
+	intensity = pow( c - dot(vNormal, vNormel), p );
+	
+    gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+}
+</script>
+
+<script id="fragmentShader" type="x-shader/x-vertex"> 
+uniform vec3 glowColor;
+varying float intensity;
+void main() 
+{
+	vec3 glow = glowColor * intensity;
+    gl_FragColor = vec4( glow, 1.0 );
+}
+</script>
+
+
+		<style>
+			body{
+					margin: 0;
+					overflow: hidden;
+				}
+
+			#animation_container {
+				position:absolute;
+				margin:auto;
+				left:0;right:0;
+				top:0;bottom:0;
+ 			}
+
+ 			.menuButton {
+ 				display: block; 
+ 				min-width: 55px; 
+ 				min-height: 55px;
+ 				max-width: 180px;
+ 				max-height: 180px; 
+ 				margin: auto; 
+ 				margin-bottom:20px;
+ 				cursor: pointer;
+ 			}
+
+		</style>
+	</head>
+		<body onload="init()" style="margin:0px;">
+				<div id="WebGL-output"></div>
+
+				<div id="menu" style="width:200px; height: 100%; background-color:darkmagenta; position: absolute; top:20px; left:-200px; z-index: 3;border-bottom-right-radius:20px; border-top-right-radius: 20px; height:calc(100% - 40px); padding-bottom:20px; padding-top:20px;">
+
+					<div id="menuOption0" onclick = "clickObject = 'sphere0'; widthTweenBack.start(); setTimeout(appending,1000);"style="background-color: red;" class="menuButton"></div>
+					<div id="menuOption1" onclick = "clickObject = 'sphere1'; widthTweenBack.start(); setTimeout(appending,1000);"style="background-color: orange;"class="menuButton"></div>
+					<div id="menuOption2" onclick = "clickObject = 'sphere2'; widthTweenBack.start(); setTimeout(appending,1000);"style="background-color: yellow;"class="menuButton"></div>
+					<div id="menuOption3" onclick = "clickObject = 'sphere3'; widthTweenBack.start(); setTimeout(appending,1000);"style="background-color: green;"class="menuButton"></div>
+					<div id="menuOption4" onclick = "clickObject = 'sphere4'; widthTweenBack.start(); setTimeout(appending,1000);"style="background-color: lightblue;"class="menuButton"></div>
+					<div id="menuOption5" onclick = "clickObject = 'sphere5'; widthTweenBack.start(); setTimeout(appending,1000);"style="background-color: blue;"class="menuButton"></div>
+				</div>
+					<div id = preload style="width: 100%;height: 100%;background: white;position: absolute;left: 0px;top: 0px;z-index: 6">
+
+						<div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); width:640px; height:480px; z-index: 4">
+							<canvas id="canvas" width="640" height="480" style="position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>
+							<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:640px; height:480px; position: absolute; left: 0px; top: 0px; display: block;">
+							</div>
+						</div>
+					</div>
+
+<script src="scripts/Scene.js"></script>
+<script src="scripts/Objects.js"></script>
+<script src="scripts/Stars.js"></script>
+<script src="scripts/MouseEvents.js"></script>
+<script src="scripts/TweenAnimations.js"></script>
+<script src="scripts/Renderer.js"></script>
+
+
+<script type="text/javascript">
+	$("#WebGL-output").append(renderer.domElement);
+	renderScene()
+
+	//cancelAnimationFrame(animate1)
+	//renderScene()
+
+</script>
+
+  </body>
+</html>
