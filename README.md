@@ -9,3 +9,5 @@ $ npm install -g local-web-server
 $ cd "this folder"
 $ ws
 then open localhost:8000/work.html)
+
+![изображение](https://user-images.githubusercontent.com/54802628/197149159-fb638918-40ce-4197-9025-afc1c864b8a0.png)
