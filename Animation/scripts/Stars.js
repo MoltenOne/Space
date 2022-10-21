@@ -1,4 +1,4 @@
-var starTexture = THREE.ImageUtils.loadTexture("lensflare0.png");
+var starTexture = THREE.ImageUtils.loadTexture("assets/lensflare0.png");
 	starTexture.wrapS = THREE.RepeatWrapping;
 	starTexture.wrapT = THREE.RepeatWrapping;
 	starTexture.repeat.set(2, 1);

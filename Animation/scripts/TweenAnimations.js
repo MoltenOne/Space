@@ -383,25 +383,4 @@ function closeInfo(){
                         },2000)
                     }
 
-/*-75,19,63
-
-var position50 = { x : 1, y: 1};
-var target0 = { x : 2, y: 0};
-var backTarget0 = { x: 1, y: 1};
-
-var massTweenBack = new TWEEN.Tween(massPosition).to(backTarget0, 800);
-massTweenBack.easing(TWEEN.Easing.Quadratic.Out);
-
-var tween0 = new TWEEN.Tween(position0).to(target0, 800);
-tween0.easing(TWEEN.Easing.Quadratic.Out)
-
-tween0.onUpdate(function(){
-    sphereMassive[0].scale.x = position0.x;
-    sphereMassive[0].scale.y = position0.x;
-    sphereMassive[0].scale.z = position0.x;
-    position0.y = sphereMassive[0].material.opacity;
-    for (var k = 0; k < sphereMassive.length; k++){
-        sphereMassive[k].material.opacity = position0.y;
-    }
-});*/
 

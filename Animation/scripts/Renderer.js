@@ -82,7 +82,6 @@ var vector = new THREE.Vector3( mouse.x, mouse.y, 1 );
 		
 		if ( INTERSECTED ){ 
 			INTERSECTED.material.color.setHex( INTERSECTED.currentHex );
-			console.log('rr');
 		//	mouseMarker = 0;
 
 					if (sphereMassive[0].scale.x != 1){

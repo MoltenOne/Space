@@ -4,7 +4,7 @@ var sphereGeometry = new THREE.SphereGeometry(4,20,20);
 for (i=0;i<6;i++) {
 	scene.add(new THREE.Mesh(sphereGeometry,new THREE.MeshBasicMaterial({color: 0x7777ff})));
 	var instance = scene.children[scene.children.length - 1];
-	instance.position.set(20*Math.cos(i),0,20*Math.sin(i));
+	instance.position.set(200*Math.cos(i),0,200*Math.sin(i));
 	instance.name = "sphere"+i;
 	instance.castShadow = true;
 	instance.material.transparent = true;
@@ -16,12 +16,12 @@ for (i=0;i<6;i++) {
 			if (scene.children[j].name.indexOf('sphere') >=0) {sphereMassive.push(scene.children[j])}
 		}
 
-sphereMassive[0].material.map = THREE.ImageUtils.loadTexture("S1.png");
-sphereMassive[1].material.map = THREE.ImageUtils.loadTexture("S2.png");
-sphereMassive[2].material.map = THREE.ImageUtils.loadTexture("S3.png");
-sphereMassive[3].material.map = THREE.ImageUtils.loadTexture("S4.png");
-sphereMassive[4].material.map = THREE.ImageUtils.loadTexture("S5.png");
-sphereMassive[5].material.map = THREE.ImageUtils.loadTexture("S6.png");
+sphereMassive[0].material.map = THREE.ImageUtils.loadTexture("assets/S1.png");
+sphereMassive[1].material.map = THREE.ImageUtils.loadTexture("assets/S2.png");
+sphereMassive[2].material.map = THREE.ImageUtils.loadTexture("assets/S3.png");
+sphereMassive[3].material.map = THREE.ImageUtils.loadTexture("assets/S4.png");
+sphereMassive[4].material.map = THREE.ImageUtils.loadTexture("assets/S5.png");
+sphereMassive[5].material.map = THREE.ImageUtils.loadTexture("assets/S6.png");
 
 
     var skyGeometry = new THREE.CubeGeometry( 2000, 2000, 2000 );
@@ -82,33 +82,24 @@ opacityTween.onUpdate(function(){
           cloud.position.set(
             720,
             0,
-  //          Math.random()*500,
             -720);
           cloud2.position.set(
             730,
             0,
-   //        Math.random()*500,
             -730);
           cloud3.position.set(
             740,
             0,
-   //         Math.random()*500,
             -740);
           cloud3.rotation.z = 500;
 
- //        cloud.rotation.x = 1.16;
- //         cloud.rotation.y = -0.12;
- //         cloud.rotation.z = Math.random()*360;
-//          cloud.material.opacity = 1;
-//          cloud2.material.opacity = 1;
-//          cloud3.material.opacity = 1;
           cloudParticles.push(cloud);
           cloudParticles.push(cloud2);
           cloudParticles.push(cloud3);
           cloud.material.color.g = 2;
           cloud.material.color.r = 10;
           cloud.material.color.b = 10;
-          cloud2.material.color.r = Math.random()*20 +5;
+          cloud2.material.color.r = Math.random()*10 +5;
           cloud3.material.color.r = 40;
           cloud3.material.color.g = 40;
           cloud3.material.color.b = 40;
@@ -152,8 +143,8 @@ objLoader.load(
 
 		scene.add( object );
 		souz = object;
-		souz.scale.set(15,15,15);
-		souz.position.y = -500;
+		souz.scale.set(2,2,2);
+		souz.rotateX(2.43);
 
 var spotLight = new THREE.SpotLight( 0xffffff );      // свет
 spotLight.position.copy(camera.position);

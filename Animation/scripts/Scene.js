@@ -21,17 +21,6 @@ var orbitControls = new THREE.OrbitControls(camera);   // Управление �
         orbitControls.minDistance = 70;
 		orbitControls.maxDistance = 300;
 
-/*var spotLight = new THREE.SpotLight( 0xffffff );      // свет
-spotLight.position.copy(camera.position);
-scene.add( spotLight );
-spotLight.shadowMapHeight = 3000;
-spotLight.shadowMapWidth = 3000;
-spotLight.castShadow = true;*/
-
-//var ambientLight = new THREE.AmbientLight(0x0c0c0c);  // свет
-//scene.add(ambientLight);
-
-
 
 
 
